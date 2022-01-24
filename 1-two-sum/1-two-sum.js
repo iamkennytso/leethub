@@ -5,6 +5,7 @@
  */
 const twoSum = (nums, target) => {
   const obj = {}
+
   for (let i = 0; i < nums.length; i++) {
     const num = nums[i]
     if (num in obj) {
