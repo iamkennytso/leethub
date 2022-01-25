@@ -25,10 +25,3 @@ var isValidBST = function(root, lowerLimit = null, upperLimit = null) {
 
   return isValidBST(root.left, lowerLimit, root.val) && isValidBST(root.right, root.val, upperLimit)
 };
-
-
-// [0,null,-1] null null
-// null null 0
-// [-1] 0 null
-// null 0 -1
-// null -1 null
