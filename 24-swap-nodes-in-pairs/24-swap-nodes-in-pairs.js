@@ -9,7 +9,7 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var swapPairs = function(head) {
+const swapPairs = head => {
   if (!head || !head.next) return head
   const dummyHead = head.next
   let cur = head
