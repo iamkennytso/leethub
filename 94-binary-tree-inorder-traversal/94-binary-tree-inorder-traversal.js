@@ -12,6 +12,7 @@
  */
 var inorderTraversal = function(root) {
   const ans = []
+
   const helper = node => {
     if (!node) return
     helper(node.left)
@@ -19,5 +20,6 @@ var inorderTraversal = function(root) {
     helper(node.right)
   }
   helper(root)
+
   return ans
 };
