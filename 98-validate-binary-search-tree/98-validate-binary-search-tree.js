@@ -15,15 +15,11 @@
 //  1   5
 // 0 2 4 6
 var isValidBST = function(root, lowerLimit = null, upperLimit = null) {
-
   if (!root) return true
-    console.log(root.val, lowerLimit, upperLimit)
   if (lowerLimit !== null && root.val <= lowerLimit) {
-    console.log('hit')
     return false
   }
   if (upperLimit !== null && root.val >= upperLimit) {
-    console.log('qwer')
     return false
   }
 
