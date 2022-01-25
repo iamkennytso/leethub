@@ -22,6 +22,7 @@ var findMode = function(root) {
   
   dig(root)
   
+  // could be optimized so we don't loop over twice
   const largest = Math.max(...Object.values(obj))
   return Object.keys(obj).filter(key => obj[key] === largest)
 };
