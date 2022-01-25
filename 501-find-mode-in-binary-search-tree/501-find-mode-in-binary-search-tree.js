@@ -24,6 +24,4 @@ var findMode = function(root) {
   
   const largest = Math.max(...Object.values(obj))
   return Object.keys(obj).filter(key => obj[key] === largest)
-  
-  console.log(obj)
 };
