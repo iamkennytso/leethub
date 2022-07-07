@@ -33,7 +33,5 @@ var threeSum = function(nums) {
     }
   }
   
-  console.log(seen)
-  
   return ans
 };
