@@ -21,18 +21,5 @@ var isBalanced = function(root) {
       return Math.max(left, right)
     }
     
-    return helper(root) === Infinity ? false : true
+    return !(helper(root) === Infinity)
 };
-
-// var isBalanced = function(root) {
-//   const helper = node => {
-//     if (!node) return 0
-//     const left = 1 + helper(node.left)
-//     const right = 1 + helper(node.right)
-//     if (Math.abs(left - right) > 1 || left === Infinity || right === Infinity) {
-//       return Infinity
-//     }
-//     return Math.max(left, right)
-//   }
-//   return helper(root) === Infinity ? false : true
-// };
