@@ -10,6 +10,20 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
+// var isBalanced = function(root) {
+//     const helper = node => {
+//       if (!node) return 0
+//       const left = helper(node.left)
+//       const right = helper(node.right)
+//       if (left === Infinity || right === Infinity || Math.abs(left - right) > 1) {
+//         return Infinity
+//       }
+//       return Math.max(left, right)
+//     }
+    
+//     return helper(root) === Infinity ? false : true
+// };
+
 var isBalanced = function(root) {
   const helper = node => {
     if (!node) return 0
@@ -22,17 +36,3 @@ var isBalanced = function(root) {
   }
   return helper(root) === Infinity ? false : true
 };
-
-
-// var isBalanced = function(root) {
-    
-//     let dfs = function(node) {
-//         if (!node) return 0;
-//         let left = 1 + dfs(node.left);
-//         let right = 1 + dfs(node.right);
-//         if (Math.abs(left - right) > 1) return Infinity;
-//         return Math.max(left, right);
-//     }
-    
-//     return dfs(root)==Infinity?false:true;
-// };
