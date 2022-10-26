@@ -11,11 +11,11 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-  let dummyHead = {next: head}
+  const dummyHead = {next: head}
   let slow = dummyHead
-  let fast = dummyHead.next
+  let fast = head
   while (fast && fast.next && fast.next.next) {
-    if (slow === fast) {
+    if (fast === slow) {
       return true
     }
     slow = slow.next
