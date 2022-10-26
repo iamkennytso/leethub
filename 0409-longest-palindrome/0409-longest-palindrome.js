@@ -4,21 +4,13 @@
  */
 var longestPalindrome = function(s) {
   const obj = {}
+  let count = 0
   for (let letter of s) {
     obj[letter] = (obj[letter] || 0) + 1
-  }
-  const vals = Object.values(obj)
-  let hasOdd = 0
-  let count = 0
-  for (let val of vals) {
-    if (val % 2 === 0) {
-      count += val
-    } else {
-      count += val - 1
-      hasOdd = 1
+    if (obj[letter] % 2 === 0) {
+      count += 2
     }
   }
 
-  count += hasOdd
-  return count
+  return count === s.length ? count : count + 1
 };
