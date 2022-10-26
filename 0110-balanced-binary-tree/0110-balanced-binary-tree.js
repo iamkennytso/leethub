@@ -11,15 +11,16 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
-    const helper = node => {
-      if (!node) return 0
-      const left = 1 + helper(node.left)
-      const right = 1 + helper(node.right)
-      if (left === Infinity || right === Infinity || Math.abs(left - right) > 1) {
-        return Infinity
-      }
-      return Math.max(left, right)
+  const helper = node => {
+    if (!node) return 0
+    const left = 1 + helper(node.left)
+    const right = 1 + helper(node.right)
+    if (left === Infinity || right === Infinity || Math.abs(left - right) > 1) {
+      return Infinity
     }
-    
-    return !(helper(root) === Infinity)
+    return Math.max(left, right)
+  }
+  
+  return !(helper(root) === Infinity)
+  
 };
