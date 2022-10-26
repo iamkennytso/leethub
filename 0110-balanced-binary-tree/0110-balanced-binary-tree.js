@@ -11,6 +11,7 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
+  
   const helper = node => {
     if (!node) return 0
     const left = 1 + helper(node.left)
@@ -22,5 +23,4 @@ var isBalanced = function(root) {
   }
   
   return !(helper(root) === Infinity)
-  
 };
