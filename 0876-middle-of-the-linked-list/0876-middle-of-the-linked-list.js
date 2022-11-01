@@ -18,10 +18,9 @@ var middleNode = function(head) {
   }
 
   const mid = (Math.ceil(length / 2)) + (length % 2 === 0 ? 1 : 0)
-  console.log(mid)
   cur = head
+
   for (let i = 1; i < mid; i++) {
-    console.log(i)
     cur = cur.next
   }
   return cur
