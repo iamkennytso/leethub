@@ -12,7 +12,5 @@ var backspaceCompare = function(s, t) {
   for (let char of t) {
     char === '#' ? tStack.pop() : tStack.push(char)
   }
-  console.log(sStack)
-  console.log(tStack)
   return sStack.join('') === tStack.join('')
 };
