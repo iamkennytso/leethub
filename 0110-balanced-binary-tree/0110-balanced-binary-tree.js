@@ -14,13 +14,13 @@ var isBalanced = function(root) {
   
   const helper = node => {
     if (!node) return 0
-    const left = 1 + helper(node.left)
-    const right = 1 + helper(node.right)
-    if (left === Infinity || right === Infinity || Math.abs(left - right) > 1) {
+    const left = helper(node.left)
+    const right = helper(node.right)
+    if (Math.abs(left - right) > 1) {
       return Infinity
     }
-    return Math.max(left, right)
+    return 1 + Math.max(left, right)
   }
   
-  return !(helper(root) === Infinity)
+  return helper(root) === Infinity ? false : true
 };
