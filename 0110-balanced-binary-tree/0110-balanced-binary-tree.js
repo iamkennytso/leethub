@@ -22,5 +22,5 @@ var isBalanced = function(root) {
     return 1 + Math.max(left, right)
   }
   
-  return helper(root) === Infinity ? false : true
+  return helper(root) !== Infinity
 };
