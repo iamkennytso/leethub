@@ -4,35 +4,32 @@
  * @return {string}
  */
 var addBinary = function(a, b) {
-  const arr = []
+  let ans = ''
   const length = Math.max(a.length, b.length)
-  console.log(length)
   let carry = false
   for (let i = 0; i < length; i++) {
     const sum = Number(a[a.length - 1 - i] || 0) + Number(b[b.length - 1 - i] || 0)
-    console.log(i, sum)
+
     if (carry) {
       if (sum === 2) {
-        arr.push(1)
-        carry = true
+        ans = 1 + ans
       } else if (sum === 1) {
-        arr.push(0)
-        carry = true
+        ans = 0 + ans
       } else {
-        arr.push(1)
         carry = false
+        ans = 1 + ans
       }
     } else {
       if (sum === 2) {
-        arr.push(0)
+        ans = 0 + ans
         carry = true
       } else {
-        arr.push(sum)
+        ans = sum + ans
       }
     }
   }
   if (carry) {
-    arr.push(1)
+    ans = 1 + ans
   }
-  return arr.reverse().join('')
+  return ans
 };
