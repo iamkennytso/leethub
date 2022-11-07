@@ -14,6 +14,7 @@
 var isSameTree = function(p, q) {
   const pArr = []
   const qArr = []
+  
   const helper = (node, arr) => {
     arr.push(node ? node.val : null)
     if (!node) return
@@ -22,16 +23,19 @@ var isSameTree = function(p, q) {
       helper(node.right, arr)
     }
   }
+  
   helper(p, pArr)
   helper(q, qArr)
+  
   if (pArr.length !== qArr.length) {
     return false
   }
+  
   for (let i = 0; i < pArr.length; i++) {
     if (pArr[i] !== qArr[i]) {
-      console.log(pArr[i], qArr[i])
       return false
     }
   }
+
   return true
 };
