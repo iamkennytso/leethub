@@ -3,19 +3,19 @@
  * @return {number[]}
  */
 var sortedSquares = function(nums) {
-  // return nums.map(num => num * num).sort((a,b) => a - b)
-  const squared = nums.map(num => num*num)
   const ans = []
   let left = 0
-  let right = squared.length - 1
-  while(left <= right) {
-    if (squared[left] > squared[right]) {
-      ans.push(squared[left])
-      left++
-    } else {
-      ans.push(squared[right])
+  let right = nums.length - 1
+  let cur = right
+  while (left <= right) {
+    if (nums[left] ** 2 < nums[right] ** 2) {
+      ans[cur] = nums[right] ** 2
       right--
+    } else {
+      ans[cur] = nums[left] ** 2
+      left++
     }
+    cur--
   }
-  return ans.reverse()
+  return ans
 };
