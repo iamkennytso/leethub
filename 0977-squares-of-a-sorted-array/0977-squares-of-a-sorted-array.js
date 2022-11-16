@@ -8,11 +8,13 @@ var sortedSquares = function(nums) {
   let right = nums.length - 1
   let cur = right
   while (left <= right) {
-    if (nums[left] ** 2 < nums[right] ** 2) {
-      ans[cur] = nums[right] ** 2
+    const leftNum = nums[left] ** 2
+    const rightNum = nums[right] ** 2
+    if (leftNum < rightNum) {
+      ans[cur] = rightNum
       right--
     } else {
-      ans[cur] = nums[left] ** 2
+      ans[cur] = leftNum
       left++
     }
     cur--
