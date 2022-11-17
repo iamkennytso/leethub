@@ -12,14 +12,21 @@
  * @return {boolean}
  */
 
-const helper = (p, q) => {
-  if (!p && !q) return true
-  if (!p || !q || p.val !== q.val) return false
-  return helper(p.left, q.left) && helper(p.right, q.right)
+const helper = (q, p) => {
+  if (!q && !p) return true
+  if (!q || !p) return false
+  return q.val === p.val && helper(q.left, p.left) && helper(q.right, p.right)
 }
 
 var isSubtree = function(root, subRoot) {
-  if (helper(root, subRoot)) return true
-  if (!root) return false
-  return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)
+  const dig = node => {
+    if (!node) return false
+    if (node.val === subRoot.val) {
+      if(helper(node, subRoot)){
+        return true
+      }
+    }
+    return dig(node.left) || dig(node.right)
+  }
+  return dig(root)
 };
