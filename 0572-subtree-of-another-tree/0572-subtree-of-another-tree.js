@@ -19,14 +19,7 @@ const helper = (q, p) => {
 }
 
 var isSubtree = function(root, subRoot) {
-  const dig = node => {
-    if (!node) return false
-    if (node.val === subRoot.val) {
-      if(helper(node, subRoot)){
-        return true
-      }
-    }
-    return dig(node.left) || dig(node.right)
-  }
-  return dig(root)
+  if (!root) return false
+  if (helper(root, subRoot)) return true
+  return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot)
 };
