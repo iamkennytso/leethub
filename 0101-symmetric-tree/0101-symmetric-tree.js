@@ -11,10 +11,10 @@
  * @return {boolean}
  */
 var isSymmetric = function(root) {
-  const helper = (left, right) => {
-    if (!left && !right) return true
-    if (!left || !right) return false
-    return left.val === right.val && helper(left.left, right.right) && helper(left.right, right.left)
+  const helper = (p, q) => {
+    if (!p && !q) return true
+    if (!p || !q) return false
+    return p.val === q.val && helper(p.left, q.right) && helper(p.right, q.left)
   }
   return helper(root, root)
 };
