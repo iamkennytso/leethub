@@ -11,9 +11,7 @@
  * @return {TreeNode}
  */
 var invertTree = function(root) {
-  if (!root) {
-    return null
-  }
+  if (!root) return root
   const hold = root.left
   root.left = root.right
   root.right = hold
