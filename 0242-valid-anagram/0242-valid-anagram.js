@@ -4,16 +4,13 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-  const obj = {}
-  for (let letter of s) {
-    obj[letter] ? obj[letter]++ : obj[letter] = 1
+  const charMap = {}
+  for (let char of s) {
+    charMap[char] = (charMap[char] || 0) + 1
   }
-  for (let letter of t) {
-    if (letter in obj) {
-      obj[letter]--
-    } else {
-      return false
-    }
+  for (let char of t) {
+    if (!(char in charMap)) return false
+    charMap[char]--
   }
-  return Object.values(obj).every(val => val === 0)
+  return Object.values(charMap).every(count => count === 0)
 };
