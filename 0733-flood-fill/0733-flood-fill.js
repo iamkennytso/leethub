@@ -5,16 +5,20 @@
  * @param {number} color
  * @return {number[][]}
  */
-var floodFill = function(image, sr, sc, color, curColor = image[sr][sc], visited = {}) {
-  const key = sr + ',' + sc
-  if (!image[sr] || image[sr][sc] !== curColor || visited[key]) {
-    return image
+var floodFill = function(image, sr, sc, color) {
+  const visited = new Set()
+  const ogColor = image[sr][sc]
+  const traverse = (x, y) => {
+    const str = `${x},${y}`
+    if (!image[x] || image[x][y] === undefined || image[x][y] !== ogColor || visited.has(str)) return
+    visited.add(str)
+    image[x][y] = color
+    traverse(x+1, y)
+    traverse(x-1, y)
+    traverse(x, y+1)
+    traverse(x, y-1)
   }
-  visited[key] = true
-  image[sr][sc] = color
-  floodFill(image, sr+1, sc, color, curColor, visited)
-  floodFill(image, sr-1, sc, color, curColor, visited)
-  floodFill(image, sr, sc+1, color, curColor, visited)
-  floodFill(image, sr, sc-1, color, curColor, visited)
+
+  traverse(sr, sc)
   return image
 };
