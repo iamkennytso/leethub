@@ -2,8 +2,17 @@
  * @param {string} s
  * @return {boolean}
  */
+const lettersSet = new Set('qwertyuiopasdfghjklzxcvbnm1234567890'.split(''))
 var isPalindrome = function(s) {
-  const clean = '0123456789qwertyuiopasdfghjklzxcvbnm'
-  const sanitized = s.toLowerCase().split('').filter(letter => clean.indexOf(letter) !== -1)
-  return sanitized.join('') === sanitized.reverse().join('')
+  const cleaned = s.toLowerCase().split('').filter(char => lettersSet.has(char)).join('')
+  let left = 0
+  let right = cleaned.length - 1
+  while (left < right) {
+    if (cleaned[left] !== cleaned[right]) {
+      return false
+    }
+    left++
+    right--
+  }
+  return true
 };
