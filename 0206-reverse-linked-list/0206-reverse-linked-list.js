@@ -9,10 +9,12 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
+
+ // null 4 3 2 1
 var reverseList = function(head) {
   let prev = null
   let cur = head
-  while(cur) {
+  while (cur) {
     const hold = cur.next
     cur.next = prev
     prev = cur
