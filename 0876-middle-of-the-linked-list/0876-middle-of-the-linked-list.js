@@ -10,16 +10,11 @@
  * @return {ListNode}
  */
 var middleNode = function(head) {
-  let length = 1
-  let cur = head
-  while (cur.next) {
-    cur = cur.next
-    length++
+  let slow = head
+  let fast = head.next
+  while (fast) {
+    slow = slow.next
+    fast = fast.next?.next
   }
-  const mid = Math.ceil(length / 2) + (length % 2 === 0 ? 1 : 0)
-  cur = head
-  for (let i = 1; i < mid; i++) {
-    cur = cur.next
-  }
-  return cur
+  return slow
 };
