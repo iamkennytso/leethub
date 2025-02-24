@@ -4,10 +4,10 @@
  */
 var longestPalindrome = function(s) {
   let count = 0
-  const countsMap = {}
+  const counts = {}
   for (let char of s) {
-    countsMap[char] = (countsMap[char] || 0) + 1
-    if (countsMap[char] % 2 === 0) count += 2
+    counts[char] = (counts[char] || 0) + 1
+    if (counts[char] % 2 === 0) count += 2
   }
   return count === s.length ? count : count + 1
 };
