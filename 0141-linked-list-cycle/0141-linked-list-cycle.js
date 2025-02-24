@@ -14,10 +14,8 @@ var hasCycle = function(head) {
   const dummyHead = {next: head}
   let slow = dummyHead
   let fast = head
-  while (fast && fast.next && fast.next.next) {
-    if (fast === slow) {
-      return true
-    }
+  while (fast && fast.next) {
+    if (slow === fast) return true
     slow = slow.next
     fast = fast.next.next
   }
