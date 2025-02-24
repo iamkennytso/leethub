@@ -1,7 +1,6 @@
 
 var MyQueue = function() {
-  this.q1 = []
-  this.q2 = []
+  this.main = []
 };
 
 /** 
@@ -9,34 +8,38 @@ var MyQueue = function() {
  * @return {void}
  */
 MyQueue.prototype.push = function(x) {
-  while (this.q1.length) {
-    this.q2.push(this.q1.pop())
+  const temp = []
+  while (this.main.length) {
+    temp.push(this.main.pop())
   }
-  this.q1.push(x)
-  while(this.q2.length) {
-    this.q1.push(this.q2.pop())
+  this.main.push(x)
+  while (temp.length) {
+    this.main.push(temp.pop())
   }
 };
 
 /**
  * @return {number}
  */
+
+ // 1 2 3
+ // 3 2
 MyQueue.prototype.pop = function() {
-    return this.q1.pop()
+  return this.main.pop()
 };
 
 /**
  * @return {number}
  */
 MyQueue.prototype.peek = function() {
-    return this.q1[this.q1.length - 1]
+    return this.main[this.main.length - 1]
 };
 
 /**
  * @return {boolean}
  */
 MyQueue.prototype.empty = function() {
-    return this.q1.length === 0
+    return this.main.length === 0
 };
 
 /** 
