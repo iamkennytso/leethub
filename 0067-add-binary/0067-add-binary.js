@@ -4,32 +4,24 @@
  * @return {string}
  */
 var addBinary = function(a, b) {
-  let ans = ''
-  const length = Math.max(a.length, b.length)
-  let carry = false
-  for (let i = 0; i < length; i++) {
-    const sum = Number(a[a.length - 1 - i] || 0) + Number(b[b.length - 1 - i] || 0)
-
-    if (carry) {
-      if (sum === 2) {
-        ans = 1 + ans
-      } else if (sum === 1) {
-        ans = 0 + ans
-      } else {
-        carry = false
-        ans = 1 + ans
-      }
-    } else {
-      if (sum === 2) {
-        ans = 0 + ans
-        carry = true
-      } else {
-        ans = sum + ans
-      }
+  let hold = 0, ans = []
+  a = String(a).split('').map(num => Number(num))
+  b = String(b).split('').map(num => Number(num))
+  while (a.length || b.length || hold) {
+    const sum = hold + (a.pop() || 0) + (b.pop() || 0)
+    if (sum === 0) {
+      ans.push(0)
+      hold = 0
+    } else if (sum === 1) {
+      ans.push(1)
+      hold = 0
+    } else if (sum === 2) {
+      ans.push(0)
+      hold = 1
+    } else if (sum === 3) {
+      ans.push(1)
+      hold = 1
     }
   }
-  if (carry) {
-    ans = 1 + ans
-  }
-  return ans
+  return ans.reverse().join('')
 };
