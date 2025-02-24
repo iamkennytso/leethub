@@ -4,16 +4,13 @@
  * @return {boolean}
  */
 var canConstruct = function(ransomNote, magazine) {
-  const dictionary = {}
-  for (let letter of magazine) {
-    dictionary[letter] ? dictionary[letter]++ : dictionary[letter] = 1
-  }
-  for (let letter of ransomNote) {
-    if (!dictionary[letter]) {
-      return false
-    } else {
-      dictionary[letter]--
-    }
+  const magMap = magazine.split('').reduce((accu, char) => {
+    accu[char] = (accu[char] || 0) + 1
+    return accu
+  }, {})
+  for (let char of ransomNote) {
+    if (!magMap[char]) return false
+    magMap[char]--
   }
   return true
 };
