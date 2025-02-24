@@ -3,15 +3,11 @@
  * @return {number}
  */
 var majorityElement = function(nums) {
-  const length = nums.length
-  const threshold = Math.floor(nums.length / 2) + 1
-  let most = 0
-  const obj = {}
+  let ans = nums[0]
+  const counts = {}
   for (let num of nums) {
-    obj[num] = (obj[num] || 0) + 1
-    most = Math.max(most, obj[num])
-    if (most === threshold) {
-      return num
-    }
+    counts[num] = (counts[num] || 0 ) + 1
+    if (counts[num] > counts[ans]) ans = num
   }
+  return ans
 };
