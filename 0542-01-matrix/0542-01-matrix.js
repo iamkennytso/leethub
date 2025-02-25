@@ -29,7 +29,6 @@ var updateMatrix = function(mat) {
   while (queue.length) {
     const [x, y, val] = queue.shift()
     const str = `${x},${y}`
-    console.log(x, y, val)
     done.add(str)
     newGrid[x][y] = val
     if (isInRange(x + 1, y)) queue.push([x + 1, y, val + 1])
